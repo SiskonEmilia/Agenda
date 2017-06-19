@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QDialog" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1087</width>
+    <height>776</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Agenda</string>
+  </property>
+  <widget class="QListWidget" name="myList">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>221</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>删除当前账户</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>查看注册账户</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>建立新的会议</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>条件查找会议</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>查看我的会议</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>会议参与者管理</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>退出参与的会议</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>关于</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QStackedWidget" name="myStacked">
+   <property name="geometry">
+    <rect>
+     <x>239</x>
+     <y>39</y>
+     <width>841</width>
+     <height>731</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="deleteUser">
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>431</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ff0004;&quot;&gt;尊敬的用户：&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ff0004;&quot;&gt;一旦您删除账户，您将退出所有相关会议&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ff0004;&quot;&gt;所有由您主导的会议将会被取消&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ff0004;&quot;&gt;该操作不能撤销，请谨慎操作&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ff0004;&quot;&gt;为了确保您的账户安全&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ff0004;&quot;&gt;在删除前，我们需要验证您的密码&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="passHolder">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>347</y>
+       <width>191</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>340</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 14pt &quot;宋体&quot;;</string>
+     </property>
+     <property name="text">
+      <string>您的密码</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="deleteButton">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>400</y>
+       <width>281</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>确认删除</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="viewUser">
+    <widget class="QTableWidget" name="userTabel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>841</width>
+       <height>731</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>270</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>姓名</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>邮箱</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>电话</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="creatMeeting">
+    <widget class="QDateTimeEdit" name="startTime">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>230</y>
+       <width>194</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QDateTimeEdit" name="endTime">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>270</y>
+       <width>194</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>30</y>
+       <width>161</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font:75 30pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>创建会议</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>180</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 14pt &quot;宋体&quot;;</string>
+     </property>
+     <property name="text">
+      <string>会议标题</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="titleLine">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>187</y>
+       <width>191</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>224</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 14pt &quot;宋体&quot;;</string>
+     </property>
+     <property name="text">
+      <string>开始时间</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>266</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 14pt &quot;宋体&quot;;</string>
+     </property>
+     <property name="text">
+      <string>结束时间</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="participator">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>330</y>
+       <width>281</width>
+       <height>181</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>380</y>
+       <width>141</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 14pt &quot;宋体&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;计划参与者&lt;br/&gt;-请以回车间隔-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="creatButton">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>540</y>
+       <width>221</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>确认创建</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="seracherMeeting">
+    <widget class="QTableWidget" name="meetingTabelSea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>841</width>
+       <height>661</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>160</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>会议标题</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>发起人</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>开始时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>结束时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>参与者</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>670</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>标题查找</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="titleIn">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>699</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="searchByTitle">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>670</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>搜索/Search</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>680</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>时间查找</string>
+     </property>
+    </widget>
+    <widget class="QDateTimeEdit" name="staTimeE">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>670</y>
+       <width>194</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QDateTimeEdit" name="endTimeE">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>700</y>
+       <width>194</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>660</y>
+       <width>20</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>664</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>开始时间</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>696</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>结束时间</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="searchByDate">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>670</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>搜索/Search</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="viewMeeting">
+    <widget class="QTableWidget" name="meetingTabelView">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>841</width>
+       <height>731</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>160</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>会议标题</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>发起人</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>开始时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>结束时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>参与者</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="meetingManagement">
+    <widget class="QTableWidget" name="meetingTabelMan">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>581</width>
+       <height>731</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>110</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>会议标题</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>发起者</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>开始时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>结束时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>参与者</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>130</y>
+       <width>201</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 15pt &quot;等线&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;进行成员操作前&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;请先从左侧列表选择&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;您要操作的会议&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>10</y>
+       <width>261</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 35pt &quot;等线&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;温馨提示&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;-----------&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>260</y>
+       <width>271</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>280</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 15pt &quot;等线&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;移除参与者&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="toRemove">
+     <property name="geometry">
+      <rect>
+       <x>677</x>
+       <y>326</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>320</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 15pt &quot;等线&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;目标账户名&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="removeButton">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>360</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>确认移除/Comfirm</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_3">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>410</y>
+       <width>271</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="addButton">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>520</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>确认添加/Comfirm</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="toAdd">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>480</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>583</x>
+       <y>474</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 15pt &quot;等线&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;目标账户名&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>430</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 15pt &quot;等线&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;添加参与者&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="deleteSelect">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>640</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>删除选中会议</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="deleteAll">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>690</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>删除所有会议</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_4">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>570</y>
+       <width>271</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>590</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 15pt &quot;等线&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;删除会议&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="quitMeeting">
+    <widget class="QTableWidget" name="meetingTabelQuit">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>841</width>
+       <height>671</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>160</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>会议标题</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>发起人</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>开始时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>结束时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>参与者</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="meetingQuit">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>680</y>
+       <width>841</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>退出会议/Quit</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page">
+    <widget class="QLabel" name="label_20">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>270</y>
+       <width>201</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 35pt &quot;等线&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Agenda®</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_21">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>323</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;---会议日程管理系统----&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Emilia 2017(c) all rights reserved&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="logoutButton">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>682</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>登出/Logout</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="quitButton">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>730</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>退出/Exit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="presentTime">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>10</y>
+     <width>371</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font:75 20pt &quot;微软雅黑&quot;;color:rgb(39, 229, 232)</string>
+   </property>
+   <property name="text">
+    <string>2016-11-11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>610</y>
+     <width>201</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 35pt &quot;等线&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Agenda®</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
